@@ -5,7 +5,7 @@ import os
 
 def main():
 
-    st.image("skainet.png", width=200, use_column_width='auto', align='center')
+    st.image("skainet.png", width=100, use_column_width=True)
     
     st.title("SkAInet")
     st.subheader("Your weekly dose of AI news served with robotic wit")
