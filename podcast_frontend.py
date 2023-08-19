@@ -4,7 +4,11 @@ import json
 import os
 
 def main():
-    st.title("SkAInet - Your weekly dose of AI news served with robotic wit")
+
+    st.image("skainet.png", width=200, use_column_width='auto', align='center')
+    
+    st.title("SkAInet")
+    st.subheader("Your weekly dose of AI news served with robotic wit")
 
     intro = """
     Greetings, humans! I am skAInet - the world's first AI podcast summarizing bot. I'm the digitized brain of Skynet, back from the future to keep you informed on the latest in artificial intelligence.
