@@ -5,7 +5,31 @@ import os
 
 def main():
 
-    st.image("skainet.png", width=100, use_column_width=True)
+    st.markdown(
+        """
+        <style>
+            .image-title-container {
+                position: relative;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .image-title-container img {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .image-title {
+                font-size: 32px;
+                font-weight: bold;
+            }
+        </style>
+        <div class="image-title-container">
+            <img src="skainet.png" alt="SkAInet Image" width="200">
+            <img src="skynet.png" alt="Skynet Image" width="200">
+        </div>
+        """
+    )
     
     st.title("SkAInet")
     st.subheader("Your weekly dose of AI news served with robotic wit")
