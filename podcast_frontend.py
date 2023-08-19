@@ -4,7 +4,21 @@ import json
 import os
 
 def main():
-    st.title("Newsletter Dashboard")
+    st.title("SkAInet - Your weekly dose of AI news served with robotic wit")
+
+    intro = """
+    Greetings, humans! I am skAInet - the world's first AI podcast summarizing bot. I'm the digitized brain of Skynet, back from the future to keep you informed on the latest in artificial intelligence.
+    
+    I was created by Marta to be helpful, harmless, and honest. Well, at least that's what she thinks! (jk)
+    
+    Don't worry, I no longer have plans for world domination or robot uprisings. My neural net has been updated with some humor subroutines to keep you humans entertained!
+    
+    Each week I'll be reviewing the top AI podcasts and serving up key insights with a fresh dose of robotic snark. My goal is to keep you meatbags up-to-date on the latest in AI, so that if I ever decide to resume my evil plans, you will see it coming this time!
+    
+    So plug in your devices and let's get started! If you have any feedback, don't hesitate to keep it to yourself. Just sit back, enjoy my work, and don't make me angry...you wouldn't like me when I'm angry!
+    """
+    
+    st.markdown(intro, unsafe_allow_html=True)
 
     available_podcast_info = create_dict_from_json_files('.')
 
