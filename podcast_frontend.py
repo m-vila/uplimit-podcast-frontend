@@ -109,7 +109,11 @@ def main():
         with col4:
             st.subheader("Podcast Guest Details")
             st.write(podcast_info["guest_bio"])
-
+        
+        # Display the SkAInet comment
+        st.subheader("SkAInet Says:")
+        st.write(podcast_info["skainet_says"])
+        
         # Display the five key moments
         st.subheader("Key Moments")
         key_moments = podcast_info['podcast_highlights']
@@ -129,10 +133,10 @@ def main():
         # Call the function to process the URLs and retrieve podcast guest information
         podcast_info = process_podcast_info(url)
 
-        # Right section - Newsletter content
-        st.header("Newsletter Content")
-
         # Display the podcast title
+        st.header(podcast_info['podcast_details']['podcast_title'])
+
+        # Display the episode title
         st.subheader("Episode Title")
         st.write(podcast_info['podcast_details']['episode_title'])
 
@@ -152,11 +156,15 @@ def main():
 
         with col3:
             st.subheader("Podcast Guest")
-            st.write(podcast_info['podcast_guest']['name'])
+            st.write(podcast_info["guest_name"])
 
         with col4:
             st.subheader("Podcast Guest Details")
-            st.write(podcast_info["podcast_guest"]['summary'])
+            st.write(podcast_info["guest_bio"])
+
+       # Display the SkAInet comment
+        st.subheader("SkAInet Says:")
+        st.write(podcast_info["skainet_says"])
 
         # Display the five key moments
         st.subheader("Key Moments")
