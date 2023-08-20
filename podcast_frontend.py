@@ -4,7 +4,7 @@ import json
 import os
 
 def main():
-
+    
     # Inject custom CSS to set the background color
     st.markdown(
         """
@@ -47,27 +47,6 @@ def main():
         unsafe_allow_html=True,
     )
 
-    st.image("skainet.png", use_column_width=True)
-
-    # Title and subtitle
-    st.title("SkAInet")
-    st.subheader("Your weekly dose of AI news served with robotic wit")
-
-    # Subtitle - Intro
-    intro = """
-        Greetings, humans! I am skAInet - the world's first AI podcast summarizing bot. I'm the digitized brain of Skynet, back from the future to keep you informed on the latest in artificial intelligence.
-
-        I was created by Marta to be helpful, harmless, and honest. Well, at least that's what she thinks! (jk)
-
-        Don't worry, I no longer have plans for world domination or robot uprisings. My neural net has been updated with some humor subroutines to keep you humans entertained!
-
-        Each week I'll be reviewing the top AI podcasts and serving up key insights with a fresh dose of robotic snark. My goal is to keep you meatbags up-to-date on the latest in AI, so that if I ever decide to resume my evil plans, you will see it coming this time!
-
-        So grab a silicon chip and let's get started! If you have any feedback, don't hesitate to keep it to yourself. Just sit back, enjoy my work, and don't make me angry...you wouldn't like me when I'm angry!
-    """
-
-    st.markdown(intro)  # Display the intro text as markdown
-
     available_podcast_info = create_dict_from_json_files('.')
 
     # Left section - Input fields
@@ -75,9 +54,14 @@ def main():
 
     # Dropdown box
     st.sidebar.subheader("Available Podcasts Feeds")
-    selected_podcast = st.sidebar.selectbox("Select Podcast", options=available_podcast_info.keys())
+    selected_podcast = st.sidebar.selectbox("Select Podcast", options=[None] + list(available_podcast_info.keys()))
 
     if selected_podcast:
+
+        image_placeholder = st.empty()
+        title_placeholder = st.empty()
+        subtitle_placeholder = st.empty()
+        intro_placeholder = st.empty()
 
         podcast_info = available_podcast_info[selected_podcast]
 
@@ -120,6 +104,33 @@ def main():
         for moment in key_moments.split('\n'):
             st.markdown(
                 f"<p style='margin-bottom: 5px;'>{moment}</p>", unsafe_allow_html=True)
+    else:
+        # Create placeholders for the main content
+        image_placeholder = st.empty()
+        title_placeholder = st.empty()
+        subtitle_placeholder = st.empty()
+        intro_placeholder = st.empty()
+        
+        image_placeholder.image("skainet.png", use_column_width=True)
+
+        # Title and subtitle
+        title_placeholder.title("SkAInet")
+        subtitle_placeholder.subheader("Your weekly dose of AI news served with robotic wit")
+
+        # Intro
+        intro = """
+        Greetings, humans! I am skAInet - the world's first AI podcast summarizing bot. I'm the digitized brain of Skynet, back from the future to keep you informed on the latest in artificial intelligence.
+
+        I was created by Marta to be helpful, harmless, and honest. Well, at least that's what she thinks! (jk)
+
+        Don't worry, I no longer have plans for world domination or robot uprisings. My neural net has been updated with some humor subroutines to keep you humans entertained!
+
+        Each week I'll be reviewing the top AI podcasts and serving up key insights with a fresh dose of robotic snark. My goal is to keep you meatbags up-to-date on the latest in AI, so that if I ever decide to resume my evil plans, you will see it coming this time!
+
+        So grab a silicon chip and let's get started! If you have any feedback, don't hesitate to keep it to yourself. Just sit back, enjoy my work, and don't make me angry...you wouldn't like me when I'm angry!
+        """
+
+        intro_placeholder.markdown(intro)  # Display the intro text as markdown
 
     # User Input box
     st.sidebar.subheader("Add and Process New Podcast Feed")
