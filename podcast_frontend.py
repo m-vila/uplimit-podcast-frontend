@@ -20,7 +20,7 @@ def main():
         background-color: #f7ae52 !important;
         }
 
-        /* Your identified class from inspect element */
+        /* Applying background color to the rest of the background */
         .css-uf99v8 {
             display: flex;
             flex-direction: column;
@@ -35,11 +35,15 @@ def main():
         }
 
         h2 {
-            color : #5D201A
+            color : #5D201A;
         }
 
         h3 {
-            color : #761F1A
+            color : #761F1A;
+        }
+
+        .css-10trblm.e1nzilvr0{
+            text-align: center;
         }
         
         </style>
@@ -53,7 +57,7 @@ def main():
     st.sidebar.header("Podcast RSS Feeds")
 
     # Dropdown box
-    st.sidebar.subheader("Available Podcasts Feeds")
+    st.sidebar.subheader("Available Podcasts")
     selected_podcast = st.sidebar.selectbox("Select Podcast", options=[None] + list(available_podcast_info.keys()))
 
     if selected_podcast:
@@ -69,7 +73,7 @@ def main():
         st.header(podcast_info['podcast_details']['podcast_title'])
 
         # Display the episode title
-        st.subheader("Episode Title")
+        st.subheader("Latest Episode")
         st.write(podcast_info['podcast_details']['episode_title'])
 
         # Display the podcast summary and the cover image in a side-by-side layout
@@ -77,7 +81,7 @@ def main():
 
         with col1:
             # Display the podcast episode summary
-            st.subheader("Podcast Episode Summary")
+            st.subheader("Episode Summary")
             st.write(podcast_info['podcast_summary'])
 
         with col2:
@@ -87,11 +91,11 @@ def main():
         col3, col4 = st.columns([3, 7])
 
         with col3:
-            st.subheader("Podcast Guest")
+            st.subheader("Guest")
             st.write(podcast_info['guest_name'])
 
         with col4:
-            st.subheader("Podcast Guest Details")
+            st.subheader("Guest Details")
             st.write(podcast_info["guest_bio"])
         
         # Display the SkAInet comment
@@ -127,17 +131,18 @@ def main():
 
         Each week I'll be reviewing the top AI podcasts and serving up key insights with a fresh dose of robotic snark. My goal is to keep you meatbags up-to-date on the latest in AI, so that if I ever decide to resume my evil plans, you will see it coming this time!
 
-        So grab a silicon chip and let's get started! If you have any feedback, don't hesitate to keep it to yourself. Just sit back, enjoy my work, and don't make me angry...you wouldn't like me when I'm angry!
+        So plug in your devices and let's get started! If you have any feedback, don't hesitate to keep it to yourself. Just sit back, enjoy my work, and don't make me angry...you wouldn't like me when I'm angry!
         """
 
-        intro_placeholder.markdown(intro)  # Display the intro text as markdown
+        intro_placeholder.markdown(intro)
 
     # User Input box
     st.sidebar.subheader("Add and Process New Podcast Feed")
     url = st.sidebar.text_input("Link to RSS Feed")
 
     process_button = st.sidebar.button("Process Podcast Feed")
-    st.sidebar.markdown("**Note**: Podcast processing can take up to 5 mins, thanks for your patience.")
+    st.sidebar.markdown("**Please note**: Podcast processing can take up to 5 minutes. Once processing is finished, the podcast will appear in the Available Podcasts section above. Thank you for your patience!")
+    st.sidebar.markdown("**Important**: Please select podcast episodes that are 25-30 minutes long only.")
 
     if process_button:
 
@@ -148,7 +153,7 @@ def main():
         st.header(podcast_info['podcast_details']['podcast_title'])
 
         # Display the episode title
-        st.subheader("Episode Title")
+        st.subheader("Latest Episode")
         st.write(podcast_info['podcast_details']['episode_title'])
 
         # Display the podcast summary and the cover image in a side-by-side layout
@@ -156,7 +161,7 @@ def main():
 
         with col1:
             # Display the podcast episode summary
-            st.subheader("Podcast Episode Summary")
+            st.subheader("Episode Summary")
             st.write(podcast_info['podcast_summary'])
 
         with col2:
@@ -166,11 +171,11 @@ def main():
         col3, col4 = st.columns([3, 7])
 
         with col3:
-            st.subheader("Podcast Guest")
+            st.subheader("Guest")
             st.write(podcast_info["guest_name"])
 
         with col4:
-            st.subheader("Podcast Guest Details")
+            st.subheader("Guest Details")
             st.write(podcast_info["guest_bio"])
 
        # Display the SkAInet comment
