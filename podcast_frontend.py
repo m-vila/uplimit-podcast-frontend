@@ -41,10 +41,6 @@ def main():
         h3 {
             color : #761F1A;
         }
-
-        .css-10trblm.e1nzilvr0{
-            text-align: center;
-        }
         
         </style>
         """,
