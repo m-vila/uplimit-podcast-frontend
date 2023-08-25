@@ -1,6 +1,6 @@
 # AI Podcast Summarizer 🎙️
 
-This project utilizes Large Language Models (LLMs) from OpenAI to summarize AI podcast episodes, identify key topics and highlights, and generate a personalized newsletter for the user. Try it out [here!](https://skainet-podcast.streamlit.app/)
+This project utilizes Large Language Models (LLMs) from OpenAI to summarize AI podcast episodes, identifying key topics and highlights. Try it out [here!](https://skainet-podcast.streamlit.app/)
 
 ## **The Problem** 😩
 
